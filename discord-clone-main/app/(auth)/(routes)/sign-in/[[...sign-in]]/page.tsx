@@ -1,6 +1,39 @@
 import { SignIn } from "@clerk/nextjs";
 import Image from "next/image";
 
+interface Labels {
+  signInTitle: string;
+  signInSubtitle: string;
+}
+
+interface Theme {
+  baseTheme: any;
+  variables: {
+    colorPrimary: string;
+    colorBackground: string;
+    colorInputBackground: string;
+    colorInputText: string;
+    colorTextSecondary: string;
+  };
+  elements: {
+    rootBox: string;
+    card: string;
+    headerTitle: string;
+    headerSubtitle: string;
+    socialButtonsBlockButton: string;
+    socialButtonsBlockButtonText: string;
+    formFieldLabel: string;
+    formFieldInput: string;
+    formButtonPrimary: string;
+    dividerLine: string;
+    dividerText: string;
+    footerActionText: string;
+    footerActionLink: string;
+    logoBox: { display: string };
+  };
+  labels: Labels;
+}
+
 export default function Page() {
   return (
     <div className="flex min-h-screen w-full overflow-hidden bg-[#18191c]">
@@ -12,11 +45,11 @@ export default function Page() {
           <div className="mb-8">
             <div className="flex items-center justify-center">
               <div className="w-16 h-16 bg-[#5865F2] rounded-full flex items-center justify-center mb-6">
-                <span className="text-white text-3xl font-bold">N</span>
+                <span className="text-white text-3xl font-bold">n</span>
               </div>
             </div>
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-6 text-center">
-              NexTalk
+              Talk
             </h1>
           </div>
           <div className="text-center max-w-md">
@@ -53,7 +86,6 @@ export default function Page() {
               colorBackground: "#2f3136",
               colorInputBackground: "#40444b",
               colorInputText: "#dcddde",
-              colorText: "#b9bbbe",
               colorTextSecondary: "#72767d",
             },
             elements: {
@@ -76,11 +108,7 @@ export default function Page() {
               footerActionLink: "text-[#5865F2] hover:text-[#7289da]",
               logoBox: { display: "none" },
             },
-            labels: {
-              signInTitle: "Sign in",
-              signInSubtitle: "to continue to discord",
-            }
-          }}
+          } as any}
         />
       </div>
     </div>
