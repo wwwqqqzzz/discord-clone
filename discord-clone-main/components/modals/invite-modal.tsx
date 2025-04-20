@@ -65,18 +65,18 @@ export const InviteModal = () => {
                 <DialogHeader className="pt-8 px-6">
 
                     <DialogTitle className=" text 2xl text-center font-bold">
-                        Convide Amigos!
+                        邀请好友！
                     </DialogTitle>
 
                     <DialogDescription className="text-center text-zinc-500">
-                        Convide amigos para fazerem parte do seu servidor!
+                        邀请好友加入您的服务器！
                     </DialogDescription>
 
                 </DialogHeader>
                 <div className="p-6">
 
                     <Label className="uppercase text-xs font-bold text-zinc-500 dark:text-secondary/70">
-                        Server Invite Link
+                        服务器邀请链接
                     </Label>
 
                     <div className="flex items-center mt-2 gap-x-2">
@@ -99,7 +99,7 @@ export const InviteModal = () => {
                     size="sm"
                     onClick={onNew}
                     disabled={isLoading}>
-                        Gerar novo Link
+                        生成新链接
                         <RefreshCcw className="w-4 h-4 ml-2"/>
                     </Button>
                 </div>

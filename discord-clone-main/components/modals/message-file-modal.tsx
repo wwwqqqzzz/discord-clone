@@ -33,10 +33,10 @@ import { Input } from "../ui/input";
 
 const formSchema = z.object({
   fileUrl: z.string().min(1, {
-    message: "Arquivo requirido",
+    message: "请选择文件",
   }),
   fileName: z.string().min(1, {	
-    message: "Nome do arquivo requirido",
+    message: "请输入文件名",
   }),
 });
 
@@ -51,7 +51,7 @@ export const MessageFileModal = () => {
     resolver: zodResolver(formSchema),
     defaultValues: {
       fileUrl: "",
-      fileName: "Arquivo",
+      fileName: "文件"
     },
   });
 
@@ -87,10 +87,10 @@ export const MessageFileModal = () => {
       <DialogContent className="bg-white text-black p-0 overflow-hidden">
         <DialogHeader className="pt-8 px-6">
           <DialogTitle className=" text 2xl text-center font-bold">
-            Adicione um anexo
+            添加附件
           </DialogTitle>
           <DialogDescription className="text-center text-zinc-500">
-            Envie um arquivo como uma mensagem
+            发送文件作为消息
           </DialogDescription>
         </DialogHeader>
 
@@ -120,13 +120,13 @@ export const MessageFileModal = () => {
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel className="uppercase text-xs font-bold text-zinc-500 dark: text-secondary/70">
-                      Nome do Arquivo
+                      文件名称
                     </FormLabel>
                     <FormControl>
                       <Input
                         disabled={isLoading}
                         className="bg-zinc-300/50 border-0 focus-visible:ring-0 text-black focus-visible:ring-offset-0"
-                        placeholder="Insira o nome do arquivo"
+                        placeholder="输入文件名称"
                         {...field}
                       />
                     </FormControl>
@@ -137,7 +137,7 @@ export const MessageFileModal = () => {
             </div>
             <DialogFooter className="px-6 py-4 bg-gray-100">
               <Button variant="primary" disabled={isLoading}>
-                Enviar
+                发送
               </Button>
             </DialogFooter>
           </form>

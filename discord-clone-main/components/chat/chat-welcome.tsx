@@ -17,10 +17,10 @@ export const ChatWelcome = ({
         </div>
       )}
       <p className="text-xl md:text-3xl font-bold">
-        {type === "channel" ? `Bem vindo ao #` : ""}{name}
+        {type === "channel" ? `欢迎来到 #` : ""}{name}
       </p>
       <p className="text-zinc-600 dark:text-zinc-400 text-sm">
-        {type === "channel" ? `Este é o início do canal ${name}, envie uma mensagem para começar a conversar.` : `Este é o início da conversa com ${name}, envie uma mensagem para começar a conversar.`}
+        {type === "channel" ? `这是 ${name} 频道的开始，发送一条消息开始聊天吧。` : `这是与 ${name} 对话的开始，发送一条消息开始聊天吧。`}
       </p>
     </div>
   );

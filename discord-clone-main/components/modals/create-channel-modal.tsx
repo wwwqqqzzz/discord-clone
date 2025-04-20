@@ -47,10 +47,10 @@ import { useEffect } from "react";
 
 const formSchema = z.object({
     name: z.string().min(1, {
-        message: "Nome do servidor é obrigatório."
+        message: "频道名称是必填项。"
     }).refine(
         name => name !== "geral",{
-            message: "Você não pode criar um canal com o nome 'geral'."
+            message: "您不能创建名为'通用'的频道。"
         }
     ),
     type: z.nativeEnum(ChannelType),
@@ -114,7 +114,7 @@ export const CreateChannelModal = () => {
                 <DialogHeader className="pt-8 px-6">
 
                     <DialogTitle className=" text 2xl text-center font-bold">
-                        Criar Canal
+                        创建频道
                     </DialogTitle>
 
                 </DialogHeader>
@@ -129,7 +129,7 @@ export const CreateChannelModal = () => {
                                     <FormItem>
                                         <FormLabel className="uppercase text-xs font-bold text-zinc-500
                                             dark: text-secondary/70">
-                                            Criar Canal
+                                            频道名称
                                         </FormLabel>
                                         <FormControl>
                                             <Input
@@ -137,7 +137,7 @@ export const CreateChannelModal = () => {
                                                 className="bg-zinc-300/50 border-0
                                                 focus-visible:ring-0 text-black
                                                 focus-visible:ring-offset-0"
-                                                placeholder="Insira o nome do servidor"
+                                                placeholder="输入频道名称"
                                                 {...field}
                                             />
                                         </FormControl>
@@ -150,7 +150,7 @@ export const CreateChannelModal = () => {
                                 name="type"
                                 render={({ field }) => (
                                     <FormItem>
-                                        <FormLabel className="">Tipo </FormLabel>
+                                        <FormLabel className="">频道类型</FormLabel>
                                         <Select
                                             disabled={isLoading}
                                             onValueChange={field.onChange}    
@@ -160,7 +160,7 @@ export const CreateChannelModal = () => {
                                                 <SelectTrigger
                                                     className="bg-zinc-300/50 border-0 focus:ring-0 text-black ring-offset-0 focus:ring-offset-0 capitalize outline-none"
                                                 >
-                                                    <SelectValue placeholder="Selecione um tipo de canal"/>
+                                                    <SelectValue placeholder="选择频道类型"/>
                                                 </SelectTrigger>
                                             </FormControl>
                                             <SelectContent>
@@ -170,24 +170,22 @@ export const CreateChannelModal = () => {
                                                         value={type}
                                                         className="capitalize"
                                                     >
-                                                        {type.toLowerCase()}
+                                                        {type.toLowerCase() === 'text' ? '文字' : 
+                                                         type.toLowerCase() === 'audio' ? '语音' :
+                                                         type.toLowerCase() === 'video' ? '视频' : 
+                                                         type.toLowerCase()}
                                                     </SelectItem>
                                                 ))}
-                                                
-                                                    
                                             </SelectContent>
                                         </Select>
-                                            
-                                        
                                         <FormMessage />
                                     </FormItem>
                                 )}
-                            
                             />
                         </div>
                         <DialogFooter className="px-6 py-4 bg-gray-100">
                             <Button variant="primary" disabled={isLoading}>
-                                Criar
+                                创建
                             </Button>
                         </DialogFooter>
                     </form>

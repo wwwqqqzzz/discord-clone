@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect,useState } from "react"
+import { useEffect, useState } from "react"
 import { LiveKitRoom, VideoConference } from "@livekit/components-react";
 import "@livekit/components-styles"
 import { Channel } from "@prisma/client";
@@ -22,29 +22,27 @@ export const MediaRoom = ({
   const [token, setToken] = useState("");
 
   useEffect(() => {
-    if(!user?.firstName || !user?.lastName) return;
+    if (!user?.firstName || !user?.lastName) return;
 
     const name = `${user.firstName} ${user.lastName}`;
 
     (async () => {
-      try{
+      try {
         const resp = await fetch(`/api/livekit?room=${chatId}&username=${name}`);
         const data = await resp.json();
         setToken(data.token);
-      } catch(e) {
+      } catch (e) {
         console.log(e);
       }
-    })()
+    })();
   }, [user?.firstName, user?.lastName, chatId]);
 
   if (token === "") {
     return (
       <div className="flex flex-col flex-1 justify-center items-center">
-        <Loader2 
-          className="h-7 w-7 text-zinc-500 animate-spin my-4"
-        />
-        <p>
-          Carregando...
+        <Loader2 className="h-7 w-7 text-zinc-500 animate-spin my-4" />
+        <p className="text-xs text-zinc-500 dark:text-zinc-400">
+          正在加载...
         </p>
       </div>
     )

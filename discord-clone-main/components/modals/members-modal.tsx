@@ -52,10 +52,16 @@ import {
 
 
 
-const roleIconMap = {
-    "GUEST": "",
+const roleIconMap: Record<MemberRole, JSX.Element | string> = {
+    "GUEST": <Shield className="h-4 w-4 ml-2 text-zinc-500"/>,
     "MODERATOR": <ShieldCheck className="h-4 w-4 ml-2 text-indigo-500"/>,
     "ADMIN": <ShieldAlert className="h-4 w-4 text-rose-500"/>,
+}
+
+const roleNameMap: Record<MemberRole, string> = {
+    "GUEST": "访客",
+    "MODERATOR": "管理员",
+    "ADMIN": "超级管理员"
 }
 
 export const  MembersModal = () => {
@@ -115,11 +121,11 @@ export const  MembersModal = () => {
                 <DialogHeader className="pt-8 px-6">
 
                     <DialogTitle className=" text 2xl text-center font-bold">
-                        Gerenciar Membros
+                        管理成员
                     </DialogTitle>
 
                     <DialogDescription className="text-center text-zinc-500">
-                    {server?.members?.length} Members
+                        {server?.members?.length} 位成员
                     </DialogDescription>
 
                 </DialogHeader>
@@ -148,7 +154,7 @@ export const  MembersModal = () => {
                                             <DropdownMenuSub>
                                                 <DropdownMenuSubTrigger className="flex items-center">
                                                     <ShieldQuestion className="h-4 w-4 mr-2"/>
-                                                    <span>Role</span>
+                                                    <span>角色</span>
                                                 </DropdownMenuSubTrigger>
                                                 <DropdownMenuPortal>
                                                     <DropdownMenuSubContent>
@@ -156,7 +162,7 @@ export const  MembersModal = () => {
                                                             onClick={() => onRoleChange(member.id, "GUEST")}
                                                         >
                                                             <Shield className="h-4 w-4 mr-2"/>
-                                                            Guest
+                                                            {roleNameMap["GUEST"]}
                                                             {member.role === "GUEST" && (
                                                                 <Check className="h-4 w-4 ml-auto" />
                                                             )}
@@ -165,7 +171,7 @@ export const  MembersModal = () => {
                                                             onClick={() => onRoleChange(member.id, "MODERATOR")}
                                                         >
                                                             <ShieldCheck className="h-4 w-4 mr-2"/>
-                                                            Moderator
+                                                            {roleNameMap["MODERATOR"]}
                                                             {member.role === "MODERATOR" && (
                                                                 <Check className="h-4 w-4 ml-auto" />
                                                             )}
@@ -178,7 +184,7 @@ export const  MembersModal = () => {
                                                 onClick={() => onKick(member.id)}
                                             >
                                                 <Gavel className="h-4 w-4 mr-2"/>
-                                                <span className="text-rose-500">Kick</span>
+                                                <span className="text-rose-500">踢出</span>
                                             </DropdownMenuItem>
                                         </DropdownMenuContent>
                                     </DropdownMenu>

@@ -79,6 +79,10 @@ export default function Page() {
       </div>
       <div className="w-full md:w-1/2 flex items-center justify-center p-6">
         <SignIn
+          path="/sign-in"
+          routing="path"
+          signUpUrl="/sign-up"
+          afterSignInUrl="/"
           appearance={{
             baseTheme: undefined,
             variables: {
@@ -97,19 +101,27 @@ export default function Page() {
               socialButtonsBlockButton:
                 "bg-[#36393f] hover:bg-[#40444b] border-none text-[#dcddde] rounded-lg",
               socialButtonsBlockButtonText: "text-[#dcddde] font-medium",
-              formFieldLabel: "text-[#dcddde] text-sm font-medium",
+              formFieldLabel: "text-[#dcddde] text-sm font-medium block",
               formFieldInput:
-                "bg-[#40444b] border border-[#40444b] text-[#dcddde] focus:ring-2 focus:ring-[#5865F2] focus:border-[#5865F2] rounded-lg",
+                "bg-[#40444b] border border-[#40444b] text-[#dcddde] focus:ring-2 focus:ring-[#5865F2] focus:border-[#5865F2] rounded-lg w-full",
               formButtonPrimary:
-                "bg-gradient-to-r from-[#5865F2] to-[#7289da] hover:from-[#4752c4] hover:to-[#5865F2] text-white font-medium rounded-lg",
+                "bg-gradient-to-r from-[#5865F2] to-[#7289da] hover:from-[#4752c4] hover:to-[#5865F2] text-white font-medium rounded-lg w-full",
               dividerLine: "bg-[#40444b] opacity-25",
               dividerText: "text-[#b9bbbe] text-xs",
-              footerActionText: "text-[#b9bbbe] text-sm",
-              footerActionLink: "text-[#5865F2] hover:text-[#7289da]",
+              footerActionText: "text-[#b9bbbe] text-sm display-block",
+              footerActionLink: "text-[#5865F2] hover:text-[#7289da] display-inline-block",
               logoBox: { display: "none" },
+              formFieldRow: "block w-full mb-4",
+              formFieldRowPasswordVisibilityToggle: "opacity-100 visible",
+              formFieldInputShowPasswordButton: "opacity-100 visible"
             },
           } as any}
         />
+      </div>
+      <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 md:hidden">
+        <p className="text-[#b9bbbe] text-sm">
+          还没有账号？ <a href="/sign-up" className="text-[#5865F2] hover:text-[#7289da]">点此注册</a>
+        </p>
       </div>
     </div>
   );

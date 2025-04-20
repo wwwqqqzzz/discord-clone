@@ -33,28 +33,28 @@ export const ServerHeader = ({
                     <DropdownMenuItem className="text-indigo-600 dark:text-indigo-400 px-3 py-2 text-sm cursor-pointer"
                         onClick={() => onOpen("invite", { server })}>
 
-                        Invite People
+                        邀请用户
                         <UserPlus className="w-4 h-4 ml-auto" />
                     </DropdownMenuItem>
                 )}
                 {isAdmin && (
                     <DropdownMenuItem className="px-3 py-2 text-sm cursor-pointer"
                         onClick={() => onOpen("editServer", { server })}>
-                        Server Settings
+                        服务器设置
                         <Settings className="w-4 h-4 ml-auto" />
                     </DropdownMenuItem>
                 )}
                 {isAdmin && (
                     <DropdownMenuItem className="px-3 py-2 text-sm cursor-pointer"
                         onClick={() => onOpen("members", { server })}>
-                        Manage Members
+                        管理成员
                         <Users className="w-4 h-4 ml-auto" />
                     </DropdownMenuItem>
                 )}
                 {isModerator && (
                     <DropdownMenuItem className="px-3 py-2 text-sm cursor-pointer"
                         onClick={() => onOpen("createChannel", { server })}>
-                        Create Channel
+                        创建频道
                         <PlusCircle className="w-4 h-4 ml-auto" />
                     </DropdownMenuItem>
                 )}
@@ -66,7 +66,7 @@ export const ServerHeader = ({
                         onClick={() => {
                             onOpen("deleteServer", { server });
                         }}>
-                        Delete Server
+                        删除服务器
                         <Trash className="w-4 h-4 ml-auto" />
                     </DropdownMenuItem>
                 )}
@@ -74,7 +74,7 @@ export const ServerHeader = ({
                     <DropdownMenuItem 
                         className="text-red-500 px-3 py-2 text-sm cursor-pointer"
                         onClick={() => onOpen("leaveServer", { server })}>
-                        Leave Server
+                        离开服务器
                         <LogOut className="w-4 h-4 ml-auto" />
                     </DropdownMenuItem>
                 )}

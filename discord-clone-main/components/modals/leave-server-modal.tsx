@@ -43,20 +43,20 @@ export const LeaveServerModal = () => {
       <DialogContent className="bg-white text-black p-0 overflow-hidden">
         <DialogHeader className="pt-8 px-6">
           <DialogTitle className="text-2xl text-center font-bold">
-            Deixar o Servidor
+            离开服务器
           </DialogTitle>
           <DialogDescription className="text-center text-zinc-500">
-            Tem certeza que deseja deixar o servidor{" "}
-            <span className="font-semibold text-indigo-">{server?.name}</span>?
+            您确定要离开服务器 
+            <span className="font-semibold text-indigo-">{server?.name}</span> 吗？
           </DialogDescription>
         </DialogHeader>
         <DialogFooter className="bg-gray-100 px-6 py-4">
           <div className="flex items-center justify-between w-full">
             <Button disabled={isLoading} onClick={onClose} variant="ghost">
-              Cancelar
+              取消
             </Button>
             <Button disabled={isLoading} onClick={onClick} variant="destructive">
-              Sair
+              离开
             </Button>
           </div>
         </DialogFooter>

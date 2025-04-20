@@ -58,12 +58,11 @@ export const DeleteChannelModal = () => {
             <DialogContent className="bg-white text-black p-0 overflow-hidden">
                 <DialogHeader className="pt-8 px-6">
                     <DialogTitle className=" text 2xl text-center font-bold">
-                        Deletar o Canal
+                        删除频道
                     </DialogTitle>
                     <DialogDescription className="text-center text-zinc-500">
-                        Tem certeza que deseja deletar o canal? <br />
-                        <span className="font-semibold text-rose-500 text-indigo-">#{channel?.name} </span> será deletado permanentemente!
-                        
+                        您确定要删除此频道吗？<br />
+                        <span className="font-semibold text-rose-500 text-indigo-">#{channel?.name}</span> 将被永久删除！
                     </DialogDescription>
                 </DialogHeader>
                 <DialogFooter className="bg-gray-100 px-6 py-4">
@@ -74,7 +73,7 @@ export const DeleteChannelModal = () => {
                             onClick={onClose}
                             variant="ghost"
                         >
-                            Cancelar
+                            取消
                         </Button>
                         <Button 
                             disabled={isLoading}
@@ -82,7 +81,7 @@ export const DeleteChannelModal = () => {
                             onClick={onClick}
                             variant="destructive"
                         >
-                            Deletar
+                            删除
                         </Button>
                     </div>
                 </DialogFooter>

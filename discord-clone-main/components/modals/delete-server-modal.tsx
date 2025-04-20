@@ -46,12 +46,11 @@ export const DeleteServerModal = () => {
             <DialogContent className="bg-white text-black p-0 overflow-hidden">
                 <DialogHeader className="pt-8 px-6">
                     <DialogTitle className=" text 2xl text-center font-bold">
-                        Deletar o Servidor
+                        删除服务器
                     </DialogTitle>
                     <DialogDescription className="text-center text-zinc-500">
-                        Tem certeza que deseja deletar o servidor? <br/>
-                        <span className="font-semibold text-rose-500 text-indigo-">{server?.name} </span> será deletado permanentemente!
-                        
+                        您确定要删除此服务器吗？<br/>
+                        <span className="font-semibold text-rose-500 text-indigo-">{server?.name}</span> 将被永久删除！
                     </DialogDescription>
                 </DialogHeader>
                 <DialogFooter className="bg-gray-100 px-6 py-4">
@@ -61,14 +60,14 @@ export const DeleteServerModal = () => {
                             onClick={onClose}
                             variant="ghost"
                         >
-                            Cancelar
+                            取消
                         </Button>
                         <Button 
                             disabled={isLoading}
                             onClick={onClick}
                             variant="destructive"
                         >
-                            Deletar
+                            删除
                         </Button>
                     </div>
                 </DialogFooter>

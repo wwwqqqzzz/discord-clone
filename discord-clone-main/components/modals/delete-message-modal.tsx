@@ -51,9 +51,10 @@ export const DeleteMessageModal = () => {
             <DialogContent className="bg-white text-black p-0 overflow-hidden">
                 <DialogHeader className="pt-8 px-6">
                     <DialogTitle className=" text 2xl text-center font-bold">
-                        Deletar a Mensagem?
+                        删除消息？
                     </DialogTitle>
-                    <DialogDescription className="text-center text-zinc-500"> A mensagem será deletada permanentemente!
+                    <DialogDescription className="text-center text-zinc-500">
+                        此消息将被永久删除！
                     </DialogDescription>
                 </DialogHeader>
                 <DialogFooter className="bg-gray-100 px-6 py-3">
@@ -64,7 +65,7 @@ export const DeleteMessageModal = () => {
                             onClick={onClose}
                             variant="ghost"
                         >
-                            Cancelar
+                            取消
                         </Button>
                         <Button 
                             disabled={isLoading}
@@ -72,7 +73,7 @@ export const DeleteMessageModal = () => {
                             onClick={onClick}
                             variant="destructive"
                         >
-                            Deletar
+                            删除
                         </Button>
                     </div>
                 </DialogFooter>

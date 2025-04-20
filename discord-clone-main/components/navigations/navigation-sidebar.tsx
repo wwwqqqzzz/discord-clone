@@ -44,8 +44,10 @@ export const NavigationSideBar = async () => {
           appearance={{
             elements: {
               avatarBox: "h-[48px] w-[48px]",
+              rootBox: "h-[48px]",
             },
           }}
+          showName={false}
         />
       </div>
     </div>

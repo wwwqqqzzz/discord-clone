@@ -19,47 +19,75 @@ export const metadata: Metadata = {
 
 // 定义中文本地化对象
 const zhLocalization = {
-  socialButtonsBlockButton: "使用 {{provider}} 继续",
   signIn: {
     start: {
       title: "登录",
       subtitle: "继续使用您的账户",
-      actionLink: "注册"
-    },
-    emailLink: {
-      title: "检查您的电子邮件",
-      subtitle: "点击发送到您邮箱的链接以登录"
+      actionText: "继续使用电子邮箱或用户名",
+      socialButtonsBlockButton: "使用 {{provider}} 继续",
+      alternativeMethods: {
+        blockButton: "使用其他方式登录",
+        separatorText: "或者",
+      },
     },
     password: {
-      title: "欢迎回来",
-      subtitle: "请输入您的密码继续"
+      title: "你好",
+      subtitle: "输入您的密码继续",
+      actionText: "输入您的密码",
+      forgotPasswordLink: "忘记密码?",
+      formButtonPrimary: "登录",
     },
-    forgotPassword: {
-      title: "重置密码", 
-      subtitle: "我们将向您发送重置密码的链接"
-    }
   },
   signUp: {
     start: {
-      title: "创建账户",
-      subtitle: "创建一个新账户",
-      actionLink: "登录"
+      title: "注册",
+      subtitle: "创建一个账户",
+      actionText: "继续使用电子邮箱",
+      socialButtonsBlockButton: "使用 {{provider}} 注册",
+      alternativeMethods: {
+        blockButton: "使用其他方式注册",
+        separatorText: "或者",
+      },
     },
-    continue: {
-      title: "完成注册",
-      subtitle: "继续创建您的账户"
-    }
   },
-  userButton: {
-    action__signOut: "退出登录",
-    action__manageAccount: "管理账户",
-    action__addAccount: "添加账户"
-  },
+  formFieldLabel__emailAddress: "电子邮箱",
+  formFieldLabel__emailAddress_username: "电子邮箱或用户名",
+  formFieldLabel__username: "用户名",
+  formFieldLabel__password: "密码",
+  formFieldInputPlaceholder__emailAddress: "your-email@example.com",
+  formFieldInputPlaceholder__emailAddress_username: "your-email@example.com / username",
+  formFieldInputPlaceholder__username: "username",
+  formFieldInputPlaceholder__password: "密码",
   formButtonPrimary: "继续",
-  formButtonReset: "取消",
+  footerActionLink__signIn: "登录",
+  footerActionText__signIn: "已有账户?",
+  footerActionLink__signUp: "点此注册",
+  footerActionText__signUp: "还没有账号?",
   backButton: "返回",
-  footerActionLink__privacy: "隐私政策",
-  footerActionLink__terms: "服务条款"
+  unstable__errors: {
+    form_password_validation_failed: "密码不正确",
+    passwordComplexity: {
+      insufficientComplexity: "密码复杂度不足",
+      digitRequired: "需要至少 {{requiredCount}} 个数字",
+      lowercaseRequired: "需要至少 {{requiredCount}} 个小写字母",
+      uppercaseRequired: "需要至少 {{requiredCount}} 个大写字母",
+      symbolRequired: "需要至少 {{requiredCount}} 个特殊符号",
+    },
+  },
+  formFieldError__notAMemberOfOrganization: "无法访问该组织",
+  formFieldError__invalidStartCode: "无效的代码",
+  formFieldError__invalidPassword: "无效的密码",
+  formFieldError__invalidEmail: "无效的电子邮箱",
+  formFieldError__invalidUsername: "无效的用户名",
+  formFieldError__invalidEmailAddress: "无效的电子邮箱",
+  formFieldError__invalidPhoneNumber: "无效的电话号码",
+  formFieldError__invalidEmailOrPhoneNumber: "无效的电子邮箱或电话号码",
+  formFieldError__invalidEmailOrUsername: "无效的电子邮箱或用户名",
+  formFieldError__userNotFound: "用户不存在",
+  formFieldError__verificationLinkExpired: "验证链接已过期",
+  formFieldAction__forgotPassword: "忘记密码?",
+  footerActionText__useAnotherMethod: "使用其他方式",
+  or: "或",
 };
 
 export default function RootLayout({
@@ -69,8 +97,29 @@ export default function RootLayout({
 }) {
   return (
     <ClerkProvider 
-      // 使用类型断言来绕过TypeScript的类型检查
-      localization={zhLocalization as any}>
+      localization={zhLocalization as any}
+      appearance={{
+        variables: {
+          colorPrimary: "#5865F2",
+          fontFamily: "Open Sans, sans-serif",
+        },
+        elements: {
+          formButtonPrimary: "bg-[#5865F2] hover:bg-[#4752c4] focus:shadow-outline text-sm normal-case",
+          formFieldInput: "border border-[#40444b] text-black",
+          formFieldLabel: "font-medium",
+          card: "",
+          logoBox: "",
+          logoImage: "",
+          header: "",
+          socialButtons: "",
+          dividerRow: "",
+          dividerText: "",
+          formButtonReset: "",
+          otpCodeFieldInput: "",
+          footer: "",
+          footerAction: ""
+        }
+      }}>
       <html lang="zh-CN" suppressHydrationWarning>
         <body className={cn(
           font.className,
