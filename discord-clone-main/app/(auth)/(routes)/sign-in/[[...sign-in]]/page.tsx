@@ -45,7 +45,39 @@ export default function Page() {
         </div>
       </div>
       <div className="w-full md:w-1/2 flex items-center justify-center p-6">
-        <SignIn />
+        <SignIn
+          appearance={{
+            baseTheme: undefined, // 移除基础主题以完全应用自定义样式
+            variables: {
+              colorPrimary: "#5865F2", // 使用左侧面板的主色调
+              colorBackground: "#2f3136", // 卡片的深色背景
+              colorInputBackground: "#40444b",
+              colorInputText: "#dcddde",
+              colorText: "#b9bbbe", // 较浅的文本颜色以提高可读性
+              colorTextSecondary: "#72767d",
+            },
+            elements: {
+              rootBox: "bg-transparent", // 如果需要，使根元素透明
+              card: "bg-[#2f3136]/95 border border-[#40444b] shadow-xl rounded-xl backdrop-blur-xl", // 匹配卡片样式
+              headerTitle: "text-white text-3xl font-bold",
+              headerSubtitle: "text-[#b9bbbe]",
+              socialButtonsBlockButton:
+                "bg-[#36393f] hover:bg-[#40444b] border-[#40444b] text-[#dcddde]",
+              socialButtonsBlockButtonText: "text-[#dcddde]",
+              formFieldLabel: "text-[#dcddde]",
+              formFieldInput:
+                "bg-[#40444b] border-[#40444b] text-[#dcddde] focus:ring-[#5865F2] focus:border-[#5865F2] rounded-md", // 添加圆角
+              formButtonPrimary:
+                "bg-[#5865F2] hover:bg-[#4752c4] text-white rounded-md", // 添加圆角
+              dividerLine: "bg-[#40444b]",
+              dividerText: "text-[#b9bbbe]",
+              footerActionText: "text-[#b9bbbe]",
+              footerActionLink: "text-[#5865F2] hover:text-[#7289da]",
+              // footer: { display: "none" }, // 上次尝试
+              logoBox: { display: "none" }, // 尝试隐藏可能包含徽章的 logoBox
+            },
+          }}
+        />
       </div>
     </div>
   );
