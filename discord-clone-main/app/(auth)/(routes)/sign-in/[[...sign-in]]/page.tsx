@@ -47,35 +47,39 @@ export default function Page() {
       <div className="w-full md:w-1/2 flex items-center justify-center p-6">
         <SignIn
           appearance={{
-            baseTheme: undefined, // 移除基础主题以完全应用自定义样式
+            baseTheme: undefined,
             variables: {
-              colorPrimary: "#5865F2", // 使用左侧面板的主色调
-              colorBackground: "#2f3136", // 卡片的深色背景
+              colorPrimary: "#5865F2",
+              colorBackground: "#2f3136",
               colorInputBackground: "#40444b",
               colorInputText: "#dcddde",
-              colorText: "#b9bbbe", // 较浅的文本颜色以提高可读性
+              colorText: "#b9bbbe",
               colorTextSecondary: "#72767d",
             },
             elements: {
-              rootBox: "bg-transparent", // 如果需要，使根元素透明
-              card: "bg-[#2f3136]/95 border border-[#40444b] shadow-xl rounded-xl backdrop-blur-xl", // 匹配卡片样式
-              headerTitle: "text-white text-3xl font-bold",
-              headerSubtitle: "text-[#b9bbbe]",
+              rootBox: "bg-transparent",
+              card:
+                "bg-[#2f3136]/95 border border-[#40444b] shadow-2xl rounded-2xl backdrop-blur-xl",
+              headerTitle: "text-white text-2xl font-semibold text-center",
+              headerSubtitle: "text-[#b9bbbe] text-sm text-center",
               socialButtonsBlockButton:
-                "bg-[#36393f] hover:bg-[#40444b] border-[#40444b] text-[#dcddde]",
-              socialButtonsBlockButtonText: "text-[#dcddde]",
-              formFieldLabel: "text-[#dcddde]",
+                "bg-[#36393f] hover:bg-[#40444b] border-none text-[#dcddde] rounded-lg",
+              socialButtonsBlockButtonText: "text-[#dcddde] font-medium",
+              formFieldLabel: "text-[#dcddde] text-sm font-medium",
               formFieldInput:
-                "bg-[#40444b] border-[#40444b] text-[#dcddde] focus:ring-[#5865F2] focus:border-[#5865F2] rounded-md", // 添加圆角
+                "bg-[#40444b] border border-[#40444b] text-[#dcddde] focus:ring-2 focus:ring-[#5865F2] focus:border-[#5865F2] rounded-lg",
               formButtonPrimary:
-                "bg-[#5865F2] hover:bg-[#4752c4] text-white rounded-md", // 添加圆角
-              dividerLine: "bg-[#40444b]",
-              dividerText: "text-[#b9bbbe]",
-              footerActionText: "text-[#b9bbbe]",
+                "bg-gradient-to-r from-[#5865F2] to-[#7289da] hover:from-[#4752c4] hover:to-[#5865F2] text-white font-medium rounded-lg",
+              dividerLine: "bg-[#40444b] opacity-25",
+              dividerText: "text-[#b9bbbe] text-xs",
+              footerActionText: "text-[#b9bbbe] text-sm",
               footerActionLink: "text-[#5865F2] hover:text-[#7289da]",
-              // footer: { display: "none" }, // 上次尝试
-              logoBox: { display: "none" }, // 尝试隐藏可能包含徽章的 logoBox
+              logoBox: { display: "none" },
             },
+            labels: {
+              signInTitle: "Sign in",
+              signInSubtitle: "to continue to discord",
+            }
           }}
         />
       </div>
